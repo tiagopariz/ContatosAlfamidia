@@ -31,6 +31,19 @@ namespace ExemplosAppConsole
 
             EscreveDiferencaIdade(idadeDaMae, idade);
 
+            Console.WriteLine("\n----------------------------------\n");
+
+            var pessoa = new Pessoa();
+            pessoa.Nome = "Pedro";
+            pessoa.Sobrenome = "Santana";
+            pessoa.Cpf = "84646465113";
+
+            Console.WriteLine($"Nome: {pessoa.Nome}\nCPF: {pessoa.Cpf}");
+
+            Console.WriteLine("Nome completo: {0}",
+                              pessoa.NomeCompleto(pessoa.Nome,
+                                                  pessoa.Sobrenome));
+
             Console.ReadKey();
         }
 
