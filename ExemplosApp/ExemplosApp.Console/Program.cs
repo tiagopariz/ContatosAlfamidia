@@ -54,6 +54,12 @@ namespace ExemplosAppConsole
             AdicionarEmail(pessoa, "jjjjj@cvom.pt");
             AdicionarEmail(pessoa, "hjhkjhk@hhh.ps");
 
+            // Logradouros
+            pessoa.Logradouros = new List<Logradouro>();
+            AdicionarLogradouro(pessoa, "Rua A", "110");
+            AdicionarLogradouro(pessoa, "Rua B", "111");
+            AdicionarLogradouro(pessoa, "Rua C", "112");
+
             Console.WriteLine($"Nome: {pessoa.Nome}\nCPF: {pessoa.Cpf}");
 
             Console.WriteLine("Nome completo: {0}",
@@ -62,6 +68,7 @@ namespace ExemplosAppConsole
 
             EscreveNumeros(pessoa);
             EscreveEmail(pessoa);
+            EscreveLogradouros(pessoa);
 
             Console.ReadKey();
         }
@@ -92,6 +99,16 @@ namespace ExemplosAppConsole
             pessoa.Emails.Add(objetoEmail);
         }
 
+        public static void AdicionarLogradouro(Pessoa pessoa,
+                                               string rua,
+                                               string numero)
+        {
+            var objetoLogradouro = new Logradouro();
+            objetoLogradouro.Rua = rua;
+            objetoLogradouro.Numero = numero;
+            pessoa.Logradouros.Add(objetoLogradouro);
+        }
+
         public static void EscreveNumeros(Pessoa pessoa)
         {
             for (int i = 0; i < pessoa.Telefones.Count(); i++)
@@ -107,6 +124,18 @@ namespace ExemplosAppConsole
             {
                 Console.Write($"{item.Endereco},");
             }            
+        }
+
+        public static void EscreveLogradouros(Pessoa pessoa)
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("Logradouros: ");
+            foreach (Logradouro item in pessoa.Logradouros)
+            {
+                Console.WriteLine($"Rua {item.Rua}, {item.Numero}");
+            }
         }
     }
 }
