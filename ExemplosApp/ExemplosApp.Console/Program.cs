@@ -43,6 +43,16 @@ namespace ExemplosAppConsole
             AdicionarTelefone(pessoa, "+55 51 3333-4444");
             AdicionarTelefone(pessoa, "+55 51 99999-9999");
             AdicionarTelefone(pessoa, "+55 51 33333-55555");
+            AdicionarTelefone(pessoa, "+55 51 33333-555999");
+            AdicionarTelefone(pessoa, "+55 51 33333-55464");
+
+            // Emails
+            pessoa.Emails = new List<Email>();
+            AdicionarEmail(pessoa, "tinono@hhh");
+            AdicionarEmail(pessoa, "fgfdgdf@hhh.bb");
+            AdicionarEmail(pessoa, "gfdgdf@lil.bb");
+            AdicionarEmail(pessoa, "jjjjj@cvom.pt");
+            AdicionarEmail(pessoa, "hjhkjhk@hhh.ps");
 
             Console.WriteLine($"Nome: {pessoa.Nome}\nCPF: {pessoa.Cpf}");
 
@@ -50,9 +60,8 @@ namespace ExemplosAppConsole
                               pessoa.NomeCompleto(pessoa.Nome,
                                                   pessoa.Sobrenome));
 
-            Console.WriteLine($"Telefone 1: {pessoa.Telefones[0].Numero}");
-            Console.WriteLine($"Telefone 2: {pessoa.Telefones[1].Numero}");
-            Console.WriteLine($"Telefone 3: {pessoa.Telefones[2].Numero}");
+            EscreveNumeros(pessoa);
+            EscreveEmail(pessoa);
 
             Console.ReadKey();
         }
@@ -73,6 +82,31 @@ namespace ExemplosAppConsole
             var objetoTelefone = new Telefone();
             objetoTelefone.Numero = telefone;
             pessoa.Telefones.Add(objetoTelefone);
+        }
+
+        public static void AdicionarEmail(Pessoa pessoa,
+                                          string endereco)
+        {
+            var objetoEmail = new Email();
+            objetoEmail.Endereco = endereco;
+            pessoa.Emails.Add(objetoEmail);
+        }
+
+        public static void EscreveNumeros(Pessoa pessoa)
+        {
+            for (int i = 0; i < pessoa.Telefones.Count(); i++)
+            {
+                Console.WriteLine($"Telefone {i + 1}: {pessoa.Telefones[i].Numero}");
+            }           
+        }
+
+        public static void EscreveEmail(Pessoa pessoa)
+        {
+            Console.Write("Emails: ");
+            foreach (Email item in pessoa.Emails)
+            {
+                Console.Write($"{item.Endereco},");
+            }            
         }
     }
 }

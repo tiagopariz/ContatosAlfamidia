@@ -14,6 +14,7 @@ namespace ExemplosAppConsole
         public string Cpf { get; set; }
 
         public List<Telefone> Telefones { get; set; }
+        public List<Email> Emails { get; set; }
 
         public string NomeCompleto(string nome, string sobrenome)
         {
