@@ -8,9 +8,12 @@ namespace ExemplosAppConsole
 {
     public class Pessoa
     {
+        public int Codigo { get; set; }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         public string Cpf { get; set; }
+
+        public List<Telefone> Telefones { get; set; }
 
         public string NomeCompleto(string nome, string sobrenome)
         {
